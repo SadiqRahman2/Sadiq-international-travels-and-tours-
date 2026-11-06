@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Safeguard against third-party browser extensions accessing miniProgram -->
+    <script>
+      (function() {
+        if (typeof window !== 'undefined') {
+          try {
+            if (!window.wx) {
+              window.wx = {
+                miniProgram: {
+                  postMessage: function() {},
+                  getEnv: function(cb) { if (typeof cb === 'function') cb({ miniprogram: false }); },
+                  navigateTo: function() {},
+                  navigateBack: function() {},
+                  switchTab: function() {},
+                  reLaunch: function() {},
+                  redirectTo: function() {}
+                }
+              };
+            }
+            if (!window.my) {
+              window.my = {
+                postMessage: function() {},
+                miniProgram: { postMessage: function() {} }
+              };
+            }
+          } catch (e) {}
+
+          // Suppress third-party extension error events from bubbling up
+          window.addEventListener('error', function(e) {
+            if (
+              (e.filename && e.filename.indexOf('chrome-extension://') !== -1) ||
+              (e.message && e.message.indexOf('miniProgram') !== -1)
+            ) {
+              e.stopImmediatePropagation();
+              e.preventDefault();
+              return true;
+            }
+          }, true);
+
+          window.addEventListener('unhandledrejection', function(e) {
+            var reason = e.reason;
+            if (reason) {
+              var str = (reason.stack || '') + (reason.message || '');
+              if (str.indexOf('chrome-extension://') !== -1 || str.indexOf('miniProgram') !== -1) {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+                return true;
+              }
+            }
+          }, true);
+        }
+      })();
+    </script>
+
+    <link rel="icon" type="image/png" href="/assets/aistudio/1787763541155_2592e705.png" />
+    <title>Sadiq International Travels and Tours | Flight Booking, Umrah & Visa Services</title>
+    <meta name="description" content="Explore The World With Us. Sadiq International Travels and Tours provides flight reservations, visit visa assistance, Umrah & Hajj packages, hotel bookings and international & Pakistan tours. Office in Bannu, KP, Pakistan." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sadiqtravels1.com/" />
+    <meta property="og:title" content="Sadiq International Travels and Tours | Your Journey, Our Priority" />
+    <meta property="og:description" content="Explore The World With Us. Professional flight bookings, Umrah packages, visit visas, and tour services by Sadiq Rahman." />
+    <meta property="og:image" content="/assets/aistudio/1787763541155_2592e705.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sadiq International Travels and Tours" />
+    <meta name="twitter:description" content="Explore The World With Us. Flight booking, Umrah packages, visa guidance & holiday tours in Bannu, Pakistan." />
+    <meta name="twitter:image" content="/assets/aistudio/1787763541155_2592e705.png" />
+
+    <!-- Google Fonts: Montserrat, Poppins & Noto Nastaliq Urdu for authentic Urdu typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Local Business Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Sadiq International Travels and Tours",
+      "alternateName": "صادق انٹرنیشنل ٹریولز اینڈ ٹورز",
+      "image": "https://sadiqtravels1.com/assets/aistudio/1787763541155_2592e705.png",
+      "url": "https://sadiqtravels1.com",
+      "telephone": "+923359227997",
+      "email": "sadiqrahmanw@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sardi Khel, Kharagai Mandi, Baka Khel",
+        "addressLocality": "Bannu",
+        "addressRegion": "Khyber Pakhtunkhwa",
+        "addressCountry": "PK"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Sadiq Rahman",
+        "jobTitle": "Founder & Managing Director"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "21:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/share/1F2Jf91hyC/",
+        "https://maps.app.goo.gl/oxe4LBz83UXQNbaBA"
+      ],
+      "priceRange": "$$"
+    }
+    </script>
+  </head>
+  <body class="bg-[#F4F7FA] text-slate-800 antialiased font-['Poppins',sans-serif] selection:bg-[#087E8B] selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

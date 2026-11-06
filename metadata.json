@@ -1,0 +1,6 @@
+{
+  "name": "Sadiq International Travels & Tours",
+  "description": "Official website for Sadiq International Travels and Tours in Bannu, KP Pakistan. Flight booking, Umrah and Hajj packages, visit visa assistance, international and Pakistan tour packages.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

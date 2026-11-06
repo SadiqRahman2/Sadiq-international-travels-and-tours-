@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #071B33;
+  --color-navy-dark: #040F1E;
+  --color-navy-light: #0D2C52;
+  --color-teal-brand: #087E8B;
+  --color-teal-hover: #066570;
+  --color-teal-light: #E6F7F9;
+  --color-gold: #D4AF37;
+  --color-gold-hover: #BF9B27;
+  --color-gold-light: #FBF6E2;
+  --color-light-bg: #F4F7FA;
+  --font-urdu: 'Noto Nastaliq Urdu', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.urdu-text {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+  line-height: 2.2;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F7FA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #087E8B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #071B33;
+}
